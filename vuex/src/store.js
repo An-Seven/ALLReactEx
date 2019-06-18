@@ -11,9 +11,15 @@ const reducer = (state = {
         prolist: state.prolist
       }
       return state;
+      case 'changeProlist':
+      state = {
+        bannerlist: state.bannerlist,
+        prolist: data
+      }
+      return state;
       default:
-      break;
+      return state;
   }
 }
-const store = createStore(reducer);
+const store = createStore(reducer)
 export default store;
