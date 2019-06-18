@@ -6,13 +6,13 @@ const reducer = (state = {
   const {type, data} = action //触发action靠的是type，data为数据
   switch (type) {
     case 'changeBannerlist':
-      state = {
-        bannerlist: data,
-        prolist: state.prolist
-      }
+      state.bannerlist = data;
       return state;
-      default:
-      break;
+    case 'changeProlist': 
+      state.prolist = data
+      return state;
+    default:
+      return state;
   }
 }
 const store = createStore(reducer);
