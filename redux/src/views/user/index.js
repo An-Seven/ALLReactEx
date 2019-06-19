@@ -3,8 +3,8 @@ import UI from './UI';
 import api from '@/api'
 const mapStateToProps = (state) => {
   return {
-    bannerlist: state.home.bannerlist,
-    prolist: state.home.prolist
+    bannerlist: state.bannerlist,
+    prolist: state.prolist
   }
 }
 

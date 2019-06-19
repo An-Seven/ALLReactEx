@@ -1,23 +1,15 @@
-import { createStore } from 'redux';
-
-function getNewState (state, obj) {
-  return Object.assign({}, state, obj)
-}
-const reducer = ( state = {
-  bannerlist: [1,2],
-  prolist: []
-},action) => {
-  const { type, data } = action
-  switch (type) {
-    case 'changeBannerList': 
-      // return Object.assign({}, state, { bannerlist : data})
-      return getNewState(state, { bannerlist: data });
-    case 'changeProlist':
-      return Object.assign({}, state, { prolist : data});
-    default:
-      return state;
-  }
-}
+import { createStore , combineReducers } from 'redux';
+import home from '@/views/home/store'
+import kind from '@/views/kind/store'
+import user from '@/views/user/store'
+import cart from '@/views/cart/store'
+//合并reducer
+const reducer = combineReducers({
+  home,
+  kind,
+  user,
+  cart
+})
 const store = createStore(reducer);
 
 export default store;
