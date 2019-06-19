@@ -1,29 +1,25 @@
 import { createStore } from 'redux';
-
 const reducer = (state = {
-  bannerlist: [1, 2, 3],
+  bannerlist: [],
   prolist: []
 }, action) => {
-  const { type, data } = action;
+  const {type, data} = action //触发action靠的是type，data为数据
   switch (type) {
-    case 'changeBannerList':
+    case 'changeBannerlist':
       state = {
         bannerlist: data,
         prolist: state.prolist
       }
       return state;
-    case 'changeProlist':
+      case 'changeProlist':
       state = {
         bannerlist: state.bannerlist,
         prolist: data
       }
       return state;
-  
-    default:
-      return state
+      default:
+      return state;
   }
 }
-
-const store = createStore(reducer);
-
-export default store
+const store = createStore(reducer)
+export default store;
